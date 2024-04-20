@@ -6,7 +6,24 @@ export default {
     "../../packages/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        background: "#484846",
+        dark: "#1c1c1b",
+      },
+      borderColor: {
+        background: "#484846",
+        slider: "#353839",
+      },
+      boxShadow: {
+        on: "-8px 8px 8px 2px #3b82f6, 0 0 0 1px #3b82f6",
+        off: "-8px 8px 8px 2px #ef4444, 0 0 0 1px #ef4444",
+        none: "-5px 5px 20px 2px",
+        slider: "0 0 10px 25px #353839 inset",
+      },
+    },
   },
   plugins: [],
 }
+
+//#3b82f6

@@ -1,22 +1,37 @@
+import React, { useState } from "react"
 import Slider from "@repo/ui/slider"
 import Button from "@repo/ui/button"
-import { useState } from "react"
 
-function App() {
-  const [value, setValue] = useState(0)
-  console.log(value)
+function App(): JSX.Element {
+  const [value, setValue] = useState<number>(100)
+  const [on, setOn] = useState<boolean>(false)
+  const [off, setOff] = useState<boolean>(false)
+
   return (
-    <div className="flex justify-center h-screen">
-      <div className="bg-black w-5/12 h-full">
-        <div className="rounded-2xl grid grid-cols-2 h-full p-5 ">
-          <div className="bg-gray-500 rounded-2xl border-r border-black grid grid-rows-2 py-20">
-            <Button />
-            <Button />
-          </div>
-          <div className="bg-red-300 rounded-2xl border-l border-black flex justify-center">
-            <div className="w-5/12 bg-slate-600 my-32 rounded-full flex justify-center py-6">
-              <Slider value={value} setValue={setValue} />
-            </div>
+    <div className="flex justify-center h-screen py-5 bg-background">
+      <div
+        className="rounded-3xl grid grid-cols-2 w-5/12 h-full p-5 shadow-2xl shadow-black"
+        style={{ backgroundImage: `url(public/1.png)` }}
+      >
+        <div className="rounded-l-3xl border-r-2 border-black grid grid-rows-2 py-20">
+          <Button
+            type={1}
+            setValue={setValue}
+            state={on}
+            setState={setOn}
+            setAntiState={setOff}
+          />
+          <Button
+            type={2}
+            setValue={setValue}
+            state={off}
+            setState={setOff}
+            setAntiState={setOn}
+          />
+        </div>
+        <div className="rounded-r-3xl border-l-2 border-black flex justify-center">
+          <div className="w-5/12 bg-dark my-32 rounded-full flex justify-center py-6 shadow-none">
+            <Slider on={on} off={off} value={value} setValue={setValue} />
           </div>
         </div>
       </div>
