@@ -1,5 +1,5 @@
-import ReactSlider from "react-slider"
-import Slider from "./components/Slider"
+import Slider from "@repo/ui/slider"
+import Button from "@repo/ui/button"
 import { useState } from "react"
 
 function App() {
@@ -9,13 +9,13 @@ function App() {
     <div className="flex justify-center h-screen">
       <div className="bg-black w-5/12 h-full">
         <div className="rounded-2xl grid grid-cols-2 h-full p-5 ">
-          <div className="bg-gray-500 rounded-2xl border-r border-black grid grid-rows-2">
-            <button className="w-5/12 bg-slate-600 mx-auto mt-32 mb-12 rounded-full border-8"></button>
-            <button className="w-5/12 bg-slate-600 mx-auto mt-12 mb-32 rounded-full border-8"></button>
+          <div className="bg-gray-500 rounded-2xl border-r border-black grid grid-rows-2 py-20">
+            <Button />
+            <Button />
           </div>
           <div className="bg-red-300 rounded-2xl border-l border-black flex justify-center">
             <div className="w-5/12 bg-slate-600 my-32 rounded-full flex justify-center py-6">
-              <Slider setValue={setValue} />
+              <Slider value={value} setValue={setValue} />
             </div>
           </div>
         </div>
