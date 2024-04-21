@@ -6,9 +6,10 @@ interface SliderProps {
   off: boolean
   value: number
   setValue: React.Dispatch<React.SetStateAction<number>>
+  color: number[]
 }
 
-const Slider: React.FC<SliderProps> = ({ on, off, value, setValue }) => {
+const Slider: React.FC<SliderProps> = ({ on, off, value, setValue, color }) => {
   return (
     <ReactSlider
       className="flex justify-center w-full"
@@ -23,6 +24,7 @@ const Slider: React.FC<SliderProps> = ({ on, off, value, setValue }) => {
       renderTrack={(props, state) => {
         const isPrimaryTrack = state.index === 0
         const value = 100 - state.value
+        const addtionalBlueIntensity = ((100 - color[2]) / 100) * value
         return (
           isPrimaryTrack && (
             <div
@@ -30,12 +32,12 @@ const Slider: React.FC<SliderProps> = ({ on, off, value, setValue }) => {
               style={
                 on
                   ? {
-                      backgroundColor: `rgb(0%,0%,${value}%)`,
-                      boxShadow: `0 0 ${0.1 * value}px 2px rgb(0%,0%,${value}%)`,
+                      backgroundColor: `rgb(${color[0]}%,${color[1]}%,${color[2] + addtionalBlueIntensity}%)`,
+                      boxShadow: `0 0 ${0.1 * value}px 2px rgb(${color[0]}%,${color[1]}%,${color[2] + addtionalBlueIntensity}%)`,
                     }
                   : {
-                      backgroundColor: `rgb(0%,0%,0%)`,
-                      boxShadow: `0 0 0 2px rgb(0%,0%,0%)`,
+                      backgroundColor: `rgb(${color[0]}%,${color[1]}%,${color[2]}%)`,
+                      boxShadow: `0 0 0 2px rgb(${color[0]}%,${color[1]}%,${color[2]}%)`,
                     }
               }
             />

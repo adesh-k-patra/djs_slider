@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "exports": {
     "./slider": "./components/slider.tsx",
-    "./button": "./components/button.tsx"
+    "./button": "./components/button.tsx",
+    "./card": "./components/card.tsx"
   },
   "license": "MIT",
   "scripts": {
